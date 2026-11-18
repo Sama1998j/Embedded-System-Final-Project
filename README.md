@@ -64,14 +64,14 @@ Firmware for a differential-drive buggy running on a **dsPIC33EP512MU810**. The 
 - A programmer/debugger supported by MPLAB X (PICkit, ICD, etc.)
 
 **Steps**
-1. In MPLAB X, choose **File → Open Project** and select the `Final Project v2.X` folder.
-2. Choose your programmer under **Project Properties → Connected Hardware Tool**. The project currently has no tool set.
-3. **Build** (hammer icon), then **Make and Program Device**.
 
-The generated `Makefile` can also build the project from the command line on a machine with MPLAB X and XC16 installed:
-```bash
-make CONF=default
-```
+This repository contains only the source files, so you create the MPLAB X project yourself:
+
+1. In MPLAB X, choose **File → New Project → Microchip Embedded → Application Project(s)**.
+2. Select the device **dsPIC33EP512MU810**, your programmer/debugger, and the **XC16** compiler.
+3. Copy all the `.c` and `.h` files from this repository into the new project folder.
+4. In the **Projects** panel, right-click **Source Files → Add Existing Item** and add all the `.c` files. Add the `.h` files the same way under **Header Files**.
+5. **Build** (hammer icon), then **Make and Program Device**.
 
 ---
 
@@ -222,7 +222,6 @@ The IR conversion in `adc_read_distance()` is a 4th-order polynomial fit from vo
 ## Project layout
 
 ```
-Final Project v2.X/
 ├── main.c
 ├── fsm.c / fsm.h
 ├── parser.c / parser.h
@@ -234,6 +233,5 @@ Final Project v2.X/
 ├── imu.c / imu.h
 ├── timer.c / timer.h
 ├── lights.c / lights.h
-├── Makefile                 # MPLAB X generated
-└── nbproject/               # MPLAB X project configuration
+└── README.md
 ```
